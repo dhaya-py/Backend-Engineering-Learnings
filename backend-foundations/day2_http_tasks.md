@@ -39,8 +39,8 @@
 request = {
     "method" : "GET",
     "url"    : "/user",
-    "headers": "{Authorization : "bearer token"}",
-    "query-params" : "{limit: 10}"
+    "headers": {"Authorization" : "bearer token"},
+    "query-params" : {"limit": 10}
 }
 
 
@@ -57,3 +57,26 @@ preparing the response like if bookings are available we need to return booking 
 we need to return booking is not available or please select the available slots, then formatting the response like we don't return the response
 with full data or model for security reasons instead we return the response with success message or necessary details what they need, otherwise
 we don't publish our data unnecessarily, now send the final response to client.
+
+Client
+↓
+DNS → IP
+↓
+Reverse Proxy (NGINX)
+↓
+Uvicorn / Gunicorn
+↓
+FastAPI Router
+↓
+Dependencies
+↓
+Pydantic Validation
+↓
+Business Logic / Service Layer
+↓
+Database Query
+↓
+Response Model
+↓
+JSON Response to Client
+
